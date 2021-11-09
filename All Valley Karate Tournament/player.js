@@ -1,8 +1,11 @@
 class Player{
     constructor(){
-        this.h = 150;
+        this.w = 288/1.5;
+        this.h = 511/1.5;
+        this.w1 = 402/1.5;
+        this.h1 = 502/1.5;
         this.x = 150;
-        this.y = height - this.h / 2;
+        this.y = height - this.h;
         this.yVel = 0;
         this.gravity = 1;
         this.xDir = 0;
@@ -15,7 +18,7 @@ class Player{
     move(){
         this.y += this.yVel;
         this.yVel += this.gravity;
-        this.y = constrain(this.y, 0, height - this.h/2);
+        this.y = constrain(this.y, - this.h /2, height - this.h - 50);
         this.x += this.xDir*5;
     }
 
@@ -24,10 +27,10 @@ class Player{
     }
 
     show(){
-        image(playerImg, this.x, this.y, this.h, this.h);
+        image(playerImg, this.x, this.y, this.w, this.h);
     }
 
-    showHit(){
-        image(madImg, this.x, this.y, this.h, this.h);
+    showFight(){
+        image(playerFightImg, this.x, this.y, this.w1, this.h1);
     }
 }
